@@ -1,5 +1,4 @@
-# 2016-06-04 by penkich
-# ondokei for MicroPython on ESP8266
+# ondokei test script for MicroPython on ESP8266. 2016-06-04 by penkich
 # 温度センサー：http://akizukidenshi.com/download/ds/akizuki/AE-ADT7410_aw.pdf
 # 
 # 
