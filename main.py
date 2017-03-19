@@ -22,7 +22,7 @@ def seg7(i2c_addr,four_letter,dotpos):
     v1 = int(four_letter[1])
     v2 = int(four_letter[2])
     v3 = int(four_letter[3])
-    data = [0xfc, 0x60, 0xda, 0xf2, 0x66, 0x1b6, 0xbe, 0xe4, 0xfe, 0xe6]
+    data = [0xfc, 0x60, 0xda, 0xf2, 0x66, 0xb6, 0xbe, 0xe4, 0xfe, 0xe6]
     dot  = [0,0,0,0]
     dot[dotpos]=1
     i2c.writeto(i2c_addr, ustruct.pack('bb',00,data[v0]+dot[0]))
