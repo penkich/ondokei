@@ -1,6 +1,6 @@
 # ondokei test script for MicroPython on ESP8266. 2016-06-04 by penkich
 # 温度センサー：http://akizukidenshi.com/download/ds/akizuki/AE-ADT7410_aw.pdf
-# 
+# 7セグドライバ：HT16K33 但し、配線はAdafruitのブレークアウトとは異なる。
 # Ambientにデータ送信＆7セグ手抜きを修正。2021-02-14 by penkich
 #
 from machine import Pin,I2C,Timer
