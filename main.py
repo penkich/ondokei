@@ -1,7 +1,7 @@
 # ondokei test script for MicroPython on ESP8266. 2016-06-04 by penkich
 # 温度センサー：http://akizukidenshi.com/download/ds/akizuki/AE-ADT7410_aw.pdf
 # 
-# 
+# Ambientにデータ送信＆7セグ手抜きを修正。2021-02-14 by penkich
 #
 from machine import Pin,I2C,Timer
 i2c = I2C(scl=Pin(5),sda=Pin(4),freq=1000000)
@@ -36,7 +36,7 @@ def seg7(i2c_addr,four_letter,dotpos):
     i2c.writeto(i2c_addr, ustruct.pack('bb',06,data[v3]+dot[3]))
 
 
-import ambient
+import ambient # ambient提供のライブラリはMicroPythonではtimeout関連でエラーするので修正必要。
 
 chid = 12345
 rkey = "xxxxxxxxxxxxxxxx"
@@ -55,7 +55,7 @@ while True:
     if i % 60 == 0:
         i = 0
         try:
-            r = am.send({'d1':temp},timeout = 10)
+            r = am.send({'d1':temp},timeout = 10) # 60秒に1回送信。
         except Exception as e:
             print(e)
     i += 1
